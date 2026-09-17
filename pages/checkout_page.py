@@ -61,9 +61,10 @@ class CheckoutPage:
 
     def get_error_message(self):
 
-        return self.wait.until(
-            EC.visibility_of_element_located(self.ERROR_MESSAGE)
-        ).text
+        error = self.wait.until(
+            EC.presence_of_element_located(self.ERROR_MESSAGE)
+        )
+        return error.text
 
     def click_finish(self):
 
